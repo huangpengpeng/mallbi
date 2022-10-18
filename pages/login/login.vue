@@ -107,7 +107,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	page {
 		width: 100%;
 		height: 100%;
@@ -140,6 +140,13 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 30rpx;
+	}
+	
+	button{
+		    padding: 0;
+		    margin: 0;
+		    background-color: #fff;
+			line-height: 80rpx;
 	}
 	
 	.uni-input-border,
