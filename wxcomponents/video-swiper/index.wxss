@@ -1,0 +1,77 @@
+.swiper {
+		position: relative;
+		width: 100%;
+
+	}
+	
+	.info {
+		z-index: 1;
+		position: absolute;
+		bottom: 60upx;
+		color: white;
+		text-indent: 1em;
+		font-size: 30upx;
+	}
+		
+		
+		
+	.video {
+		width: 100%;
+		z-index: 0;
+	}
+	
+	.add{
+		position: absolute;
+		bottom: -30upx;
+		margin: 0 auto;
+		right: 0upx;
+		background-color: #f15b6c;
+		left: 0upx;
+		width: 50upx;
+		height: 50upx;
+		font-size: 50upx;
+		line-height: 50upx;
+		border-radius:50upx;
+	}
+	
+	.header{
+		border: 2px solid white;
+		margin: 0 auto;
+		border-radius:90upx;
+		height: 90upx;
+		width: 90upx;
+	}
+	.header_group{
+		height: 90upx;
+		width: 90upx;
+		position: relative;
+		margin-top: 90upx;
+	}
+	
+	.button {
+		text-align: center;
+		font-size: 25upx;
+	}
+	
+	.button .icon {
+		margin: 20upx;
+		width: 60upx;
+	}
+	
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		right: 5vw;
+		bottom: 12vh;
+		color: white;
+		text-align: center;
+		justify-content: center;
+		z-index: 1;
+		
+		
+	}
+		
+	
+	
+	

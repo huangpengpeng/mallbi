@@ -1,0 +1,13 @@
+{
+    "id": "yz-audio",
+    "name": "倍速播放的音频播放器yz-audio",
+    "version": "1.1.0",
+    "description": "支持音频的变速播放；界面中内置了三个可以自定义内容的文本区域，可以响应点击事件，也可以使用slot自",
+    "keywords": [
+        "音频播放器",
+        "变速"
+    ],
+    "dependencies": {
+        "uview-ui": "^1.8.6"
+    }
+}

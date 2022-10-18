@@ -1,0 +1,72 @@
+<view class="container">
+  <swiper 
+    class="swiper" 
+    circular="{{circular}}" 
+    easing-function="{{easingFunction}}" 
+    vertical 
+    current="1"
+    duration="{{duration}}" 
+    bindanimationfinish="animationfinish">
+    <!-- curQueue 循环会导致video重新插入，objectFit 不可变更 -->
+    <swiper-item wx:for="{{curQueue}}" wx:key="*this">
+		<view class="swiper-item uni-bg-red">
+			<view>
+      <video 
+        id="video_{{index}}" 
+        class="video" 
+        loop="{{loop}}" 
+        enable-play-gesture 
+        enable-progress-gesture 
+        show-center-play-btn="{{false}}"
+        controls="{{false}}"
+        src="{{item.src}}" 
+        data-id="{{item.id}}"
+        object-fit="{{item.objectFit || 'contain'}}"
+        data-index="{{index}}"
+        bindplay="onPlay"
+        bindpause="onPause"
+        bindended="onEnded"
+        binderror="onError"
+        bindtimeupdate="onTimeUpdate"
+        bindwaiting="onWaiting"
+        bindprogress="onProgress"
+        bindloadedmetadata="onLoadedMetaData"
+      >
+      </video>
+	  </view>
+	  	<view class="info">
+	  		<view class="title">@{{item.title}}</view>
+	  	</view>
+		
+	<view class="audio" bindtap="godetail" data-o="{{item.goodsId}}">
+		<view class="text-group">
+			<view class="text1">{{item.goodsName}}@去购买</view>
+		</view>
+		<view>
+			<image class="icon" src="{{item.goodsPic}}"></image>
+		</view>
+	</view>
+	  	
+	  	<view class="buttons">
+	  		<view wx-if="{{userInfo.capaNum > 0}}" bindtap="downVideo" data-id='{{item.id}}' data-v='{{item.src}}' class="header_group" >
+	  			<image class="header" src="https://tope-test-baie-bj.oss-cn-beijing.aliyuncs.com/612bedba378d43d7994ac506f7a5c371"></image>
+	  			<!-- <view class="add">+</view> -->
+	  		</view>
+	  		<view class="button">
+	  			<image  mode="widthFix" class="icon" src="https://tope-test-baie-bj.oss-cn-beijing.aliyuncs.com/8b6d732121944bda8fdde68843186c93"></image>
+	  			<view>{{item.browseCount}}</view>
+	  		</view>
+	  		<!-- <view class="button">
+	  			<image  mode="widthFix" class="icon" src="https://tope-test-baie-bj.oss-cn-beijing.aliyuncs.com/c068f482fb6f4e0499ab43e0aee5cc64"></image>
+	  			<view>{{item.downCount}}</view>
+	  		</view> -->
+	  		<!-- <view class="button">
+	  			<image  mode="widthFix" class="icon" src="https://tope-test-baie-bj.oss-cn-beijing.aliyuncs.com/bec7cfc27f5945de82011ae24a611dd4"></image>
+	  			<view>7.6w</view>
+	  		</view> -->
+	  	</view>
+	  </view>
+    </swiper-item>
+  </swiper>
+</view>
+
