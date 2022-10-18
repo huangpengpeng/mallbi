@@ -63,13 +63,9 @@ module.exports = {
 		// #ifdef MP
 		  appId=uni.getAccountInfoSync().miniProgram.appId;
 		// #endif
-		if(appId == 'wxf4eb28175b3e1b71'){
+		if(appId == 'wxc762970bebfbb072'){
 			//url='https://xx.kkyp.vip';
-		  url='http://127.0.0.1:860';
-		}
-	
-		else{
-			url='https://wkp42271043176625.51wk.cc';
+		  url='https://bb.51wk.cc/';
 		}
 		return url;
 	}

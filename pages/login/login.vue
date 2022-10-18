@@ -126,7 +126,7 @@
 
 	.uni-button-full {
 		width: 100%;
-		height: 50rpx;
+		height: 80rpx;
 	}
 	/* 按钮样式 */
 	.uni-button-group {
@@ -134,7 +134,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		margin-bottom: 30rpx;
 	}
+	
 	.uni-input-border,
 	.uni-textarea-border {
 		width: 100%;
