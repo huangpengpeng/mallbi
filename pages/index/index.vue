@@ -87,12 +87,7 @@
 		},
 		onLoad(options) {
 			
-			console.log(this.isLogin)
-			if(!this.isLogin){
-				uni.navigateTo({
-					url:"/pages/login/login"
-				})
-			};
+	
 			
 			// #ifdef H5
 			if (navigator.userAgent.indexOf('Mobile') > -1) {

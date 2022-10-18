@@ -88,8 +88,13 @@
 				timingFunction: 'ease',
 			})
 			this.animation = animation
-			this.DayScoreTotal("wkp42271043176625",this.date);
+	console.log(111)
+	this.DayScoreTotal("wkp42271043176625",this.date);
 		},
+		onShow() {
+		
+		},
+	
 	
 		methods: {
 				 dateChange(e) {

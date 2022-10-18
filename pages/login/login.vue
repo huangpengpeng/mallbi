@@ -1,7 +1,7 @@
 <template>
 	<view class="login-box">
 		<view class="admin-logo">
-			<image src="/static/icon_nodatas.png" mode="heightFix"></image>
+		<!-- 	<image src="/static/icon_nodatas.png" mode="heightFix"></image> -->
 		</view>
 		<view class="uni-header no-padding">
 			<view class="uni-title">系统登录</view>
@@ -14,7 +14,7 @@
 				
 				<view class="fenge"></view>
 				<uni-forms-item class="icon-container" name="password" labelWidth="35">
-					<input  class="uni-input-border" placeholder="密码" v-model="formData.password" />
+					<input  class="uni-input-border" placeholder="密码" v-model="formData.password" type="password"/>
 				</uni-forms-item>
 				
 				<view class="fenge"></view>
@@ -83,10 +83,15 @@
 					this.$util.Tips({
 						title: '登录成功',
 						icon: 'success'
-					}, {
-						tab: 3
 					});
-					uni.$emit('refshComponents',1);
+					
+				setTimeout(() => {
+					uni.navigateTo({
+						url:"/pages/index/index?currentTab=PAGE_THREE_SM"
+					})
+				}, 3000)
+					
+					
 				}).catch(err => {
 						this.$util.Tips({
 							title: err
