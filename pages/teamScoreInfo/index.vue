@@ -46,8 +46,8 @@
 		data() {
 			return {
 				tabList: [
-						{text:"水母博士",value:"TEAM_SCORE_INFO_SM"},
-						{text:"同富时代",value:"TEAM_SCORE_INFO_TF"},
+						{text:"SM",value:"TEAM_SCORE_INFO_SM"},
+						{text:"TF",value:"TEAM_SCORE_INFO_TF"},
 					], //标签头
 				currentTab: 'TEAM_SCORE_INFO_SM',
 				progress_bar_width: 16,

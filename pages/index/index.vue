@@ -48,8 +48,8 @@
 		data() {
 			return {
 				tabList: [
-						{text:"水母博士",value:"PAGE_THREE_SM"},
-						{text:"同富时代",value:"PAGE_THREE_TF"},
+						{text:"SM",value:"PAGE_THREE_SM"},
+						{text:"TF",value:"PAGE_THREE_TF"},
 					], //标签头
 				currentTab: 'PAGE_THREE_SM',
 				progress_bar_width: 16,

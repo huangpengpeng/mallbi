@@ -46,8 +46,8 @@
 		data() {
 			return {
 				tabList: [
-						{text:"水母博士",value:"TEAM-MEMBER-NUMBER-SM"},
-						{text:"同富时代",value:"TEAM-MEMBER-NUMBER-TF"},
+						{text:"SM",value:"TEAM-MEMBER-NUMBER-SM"},
+						{text:"TF",value:"TEAM-MEMBER-NUMBER-TF"},
 					], //标签头
 				currentTab: 'TEAM-MEMBER-NUMBER-SM',
 				progress_bar_width: 16,

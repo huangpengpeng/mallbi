@@ -45,8 +45,8 @@
 		data() {
 			return {
 				tabList: [
-						{text:"水母博士",value:"ORDER-NUMBER-SCORE-INFO-SM"},
-						{text:"同富时代",value:"ORDER-NUMBER-SCORE-INFO-TF"},
+						{text:"SM",value:"ORDER-NUMBER-SCORE-INFO-SM"},
+						{text:"TF",value:"ORDER-NUMBER-SCORE-INFO-TF"},
 					], //标签头
 				currentTab: 'ORDER-NUMBER-SCORE-INFO-SM',
 				progress_bar_width: 16,
