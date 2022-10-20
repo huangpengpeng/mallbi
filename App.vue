@@ -33,7 +33,7 @@
 			globalData: false,
 			isIframe: false,
 			tabbarShow: true,
-			a:'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlAWPo',
+			a:'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlAFVB',
 			b:'MIGfMA0GCSqGSIb3DQEBAMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlAWPoQUAA4GNADCBiQKBgQDlAWPo'
 		},
 		onLaunch: function(option) {
