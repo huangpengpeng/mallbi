@@ -4,7 +4,7 @@
 
 	
 			<view class="friend_operate">
-				<view class="title">当月积分汇总
+				<view class="title">total score-M
 					<!-- <text class="font-middle">(最近活跃时间)</text> -->
 					
 				</view>

@@ -6,7 +6,7 @@
 
 		<!-- 微客群运营-->
 			<view class="friend_operate">
-				<view class="title">团队每日积分明细
+				<view class="title">T-score detail
 				</view>
 				<view class="pickerData">
 					<picker mode="date" :value="date" fields="month" @change="dateChange">

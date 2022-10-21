@@ -3,7 +3,7 @@
 		<scroll-view v-if="true" scroll-y class="data_body" :style="{height:scrollHeight}" @scroll="toScroll">
 
 			<view class="friend_operate">
-				<view class="title">订单商品占比 </view>
+				<view class="title">ratio of order </view>
 				<view class="pickerData">
 					<picker mode="date" :value="date" fields="month" @change="dateChange">
 						<view>{{date}}</view>
@@ -17,7 +17,7 @@
 
 		<!-- 微客群运营-->
 			<view class="friend_operate">
-				<view class="title">日订单积分明细
+				<view class="title">daily order details
 				<view class="pickerData2">
 					<picker mode="date" :value="date2" fields="month" @change="dateChange2">
 						<view>{{date2}}</view>
@@ -37,7 +37,7 @@
 			<view class="split_line"></view>
 
 	<view class="friend_operate">
-				<view class="title">日订单数明细
+				<view class="title">daily order quantity
 				</view>
 				<senior-table v-if="!isPC" :headers="dataTable.headers2" headerBgColor="#F78D58"
 					:contents="dataTable.contents" :urlCol="dataTable.urlCol" :firstLineFixed="true"

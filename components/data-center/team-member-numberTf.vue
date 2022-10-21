@@ -5,7 +5,7 @@
 
 		<!-- 微客群运营-->
 			<view class="friend_operate">
-				<view class="title">团队每日新增创客数量</view>
+				<view class="title">daily increse</view>
 				<view class="pickerData">
 					<picker mode="date" :value="date" fields="month" @change="dateChange">
 						<view>{{date}}</view>

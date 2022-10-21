@@ -5,7 +5,7 @@
 
 			<!-- 微客群运营-->
 			<view class="friend_operate">
-				<view class="title">团队每日积分明细
+				<view class="title">T-score detail
 					<!-- <text class="font-middle">(最近活跃时间)</text> -->
 				</view>
 				<view class="pickerData">
