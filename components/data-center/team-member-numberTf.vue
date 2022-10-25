@@ -5,7 +5,7 @@
 
 		<!-- 微客群运营-->
 			<view class="friend_operate">
-				<view class="title">daily increse</view>
+				<view class="title">daily increase</view>
 				<view class="pickerData">
 					<picker mode="date" :value="date" fields="month" @change="dateChange">
 						<view>{{date}}</view>
