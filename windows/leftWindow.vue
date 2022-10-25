@@ -71,7 +71,7 @@
 							"enable": true,
 							"icon": "uni-icons-gear",
 							"menu_id": "system_management",
-							"name": "daily increse",
+							"name": "daily increase",
 							"parent_id": "",
 							"permission": [],
 							"sort": 1000,
