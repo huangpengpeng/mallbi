@@ -1,13 +1,23 @@
 import { HTTP_REQUEST_URL_DEFAULT, HEADER,HEADER_DEF, TOKENNAME,apiCheck,VERSION} from '@/config/app';
 import { toLogin, checkLogin } from '../libs/login';
 import store from '../store';
-import md5 from "../utils/md5.min";
+const cryptoJs = require('crypto-js');
 
+const loginSecret = "ighn1gBkzBAGdwEWGRvjYG55e6PC1yWO";
+const defaultSecret = "Y96VItNxY2GutI@ZDZ77sIU^!0eP2KsO";
+const defaulttv = '3IPLa89}668@23)!';
 
-function signatureGenerate(data,header){
+function signatureGenerate(url, data,header){
     // 参数签名 密钥 + 时间戳 + header参数 + url
     // 密钥
-    let secret = getApp().globalData.a;
+	let secret = defaultSecret;
+	if(url != "/Jwebmalladmin/login") {
+		var tm1 = wx.getStorageSync('tm1');
+		if(tm1&&tm1.length) {
+			console.log("tm1="+tm1);
+			secret = cryptoJs.MD5(defaultSecret + "_" + tm1 +"_" + defaultSecret).toString();
+		}
+	}
 	// random
 	let nonce=Math.random().toString(36).substr(2);
     // 时间戳
@@ -19,7 +29,7 @@ function signatureGenerate(data,header){
     // 生成签名
     let str = dataStr +  secret +  timestamp  + nonce  + "md5";
     
-    const sign = md5(str)
+    let sign = cryptoJs.MD5(str).toString();
     
 	header.m=timestamp;
 	header.o=nonce;
@@ -70,22 +80,93 @@ function baseRequest(url, method, data, {noAuth = false, noVerify = false})
   
   if (store.state.app.token) header[TOKENNAME] = 'Bearer ' + store.state.app.token;
   
-  if (store.state.app.token) data.xxl_sso_sessionid=store.state.app.token;
+  if (store.state.app.token) header.xxl_sso_sessionid=store.state.app.token;
   
   if(VERSION) data.version=VERSION;
   
   //生成签名
-  signatureGenerate(data,header);
+  signatureGenerate(url, data,header);
 
   return new Promise((reslove, reject) => {
     uni.request({
       url: Url + '/JwebmallBi/' + url,
-      method: method || 'GET',
+      method: 'POST',
       header: header,
       data: data || {},
       success: (res) => {
+		  if(res.data != null && typeof res.data === 'string' && res.data != "" && 
+		  			res.data != 'SUCCESS' && res.data != 'FAIL') {
+		  			var tm = defaultSecret;
+		  			var tm1 = '';
+		  			var tmv = cryptoJs.enc.Utf8.parse(defaulttv);
+		  			
+		  			tm1 = wx.getStorageSync('tm1');
+		  			var isGetTime = false;
+		  			
+		  			if(tm1 != null && tm1 != '' && (url != "v2/test")){
+		  				var checkPassword = defaultSecret  + "_" + tm1 +"_" + defaultSecret;
+						var keyx = cryptoJs.MD5(checkPassword).toString();
+						var notTimek = cryptoJs.enc.Utf8.parse(keyx);
+		  				try{
+		  					var tmstrArr = cryptoJs.AES.decrypt(res.data, notTimek, {
+		  							iv: tmv,
+		  							mode: cryptoJs.mode.CBC,
+		  							padding: cryptoJs.pad.Pkcs7
+		  					});
+		  					
+		  					if(tmstrArr == null || tmstrArr.length == 0) {
+		  						isGetTime = false;
+		  						try {
+		  							console.log('set tm1 11');
+		  						    wx.setStorageSync('tm1', '');
+		  						} catch (e) {    
+		  						}
+		  					} else {
+		  						var tmstr = tmstrArr.toString(cryptoJs.enc.Utf8);
+		  						res.data = JSON.parse(tmstr);
+		  						isGetTime=true;
+		  					}
+		  				} catch(ex){
+		  					console.log(ex.message);
+		  					isGetTime = false;
+		  					try {
+		  						console.log('set tm1 12');
+		  					    wx.setStorageSync('tm1', '');
+		  					} catch (exx) {
+		  						console.log(exx.message);
+		  					}
+		  				}
+		  			}
+		  			
+		  			if(!isGetTime) {
+		  				var notTimek = cryptoJs.enc.Utf8.parse(tm);
+		  				try{
+		  					var tmstrArr = cryptoJs.AES.decrypt(res.data, notTimek, {
+		  							iv: tmv,
+		  							mode: cryptoJs.mode.CBC,
+		  							padding: cryptoJs.pad.Pkcs7
+		  					});
+		  					
+		  					if(tmstrArr == null || tmstrArr.length == 0) {
+		  						isGetTime = false;
+		  					} else {
+		  						var tmstr = tmstrArr.toString(cryptoJs.enc.Utf8);
+		  						res.data = JSON.parse(tmstr);
+		  						isGetTime=true;
+		  					}
+		  				} catch(ex){
+		  				}
+		  			} else {
+		  			}
+		  		}
+				
 		if (res.data.code == '501')
 		{
+			try {
+				console.log('set tm1 14');
+				wx.setStorageSync('tm1', '');
+			} catch (e) {    
+			}
 			store.commit("LOGOUT");
 			let pages = getCurrentPages();
 			let pageUrl=[];

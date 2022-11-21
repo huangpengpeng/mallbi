@@ -37,7 +37,7 @@
 		mapActions
 	} from 'vuex'
 	import {loginMobileCode} from '@/api/user'
-
+	const cryptoJs = require('crypto-js');
 	export default {
 		data() {
 			return {
@@ -71,7 +71,20 @@
 				
 				this.loading = true
 				
-				let data =this.formData
+				let data =this.formData;
+				let xpassword = cryptoJs.MD5(data.password).toString();
+				let loginSecret = "ighn1gBkzBAGdwEWGRvjYG55e6PC1yWO";
+				let passwordx = data.password;
+				let mfa = data.code;
+				let checkValue = data.username + "_" + loginSecret + "_"+new Date().getTime();
+				let aesKey =  cryptoJs.MD5(loginSecret + "_" + xpassword + "_" + data.code + "_" + loginSecret).toString();
+				let key = cryptoJs.enc.Utf8.parse(aesKey);
+				let srcs = cryptoJs.enc.Utf8.parse(checkValue);
+				let encrypted = cryptoJs.AES.encrypt(srcs, key, { mode: cryptoJs.mode.CBC, padding: cryptoJs.pad.Pkcs7,iv: cryptoJs.enc.Utf8.parse("3IPza89}448@23)#") });
+				checkValue = encrypted.toString();
+				delete data.password;
+				delete data.code;
+				data.checkValue = checkValue;
 				loginMobileCode(data).then(res => {
 				if (res.data) {
 					console.log(res.data)
@@ -80,6 +93,8 @@
 						time: '2099-01-01'
 					});
 				}
+				
+				wx.setStorageSync('tm1', cryptoJs.MD5(xpassword + "_" + mfa).toString());
 					this.$util.Tips({
 						title: '登录成功',
 						icon: 'success'

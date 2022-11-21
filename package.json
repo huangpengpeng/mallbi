@@ -8,6 +8,7 @@
         "变速"
     ],
     "dependencies": {
+        "crypto-js": "^4.1.1",
         "uview-ui": "^1.8.6"
     }
 }

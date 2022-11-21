@@ -64,8 +64,8 @@ module.exports = {
 		  appId=uni.getAccountInfoSync().miniProgram.appId;
 		// #endif
 		if(appId == 'wxc762970bebfbb072'){
-			//url='http://127.0.0.1:860/';
-		  url='https://bb.51wk.cc/';
+			url='http://127.0.0.1:860/';
+		  //url='https://bb.51wk.cc/';
 		}
 		return url;
 	}
