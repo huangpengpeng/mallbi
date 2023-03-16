@@ -8,7 +8,7 @@
 			<view class="uni-tabs__nav-wrap">
 				<view class="uni-tabs__nav-scroll">
 					<scroll-view class="uni-tabs__nav" :scroll-x="true">
-						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 50%; text-align: center;"
+						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 33.3%; text-align: center;"
 							:class="{'is-active':currentTab===item.value}" class="uni-tabs__item">{{item.text}}</view>
 					</scroll-view>
 				</view>
@@ -25,6 +25,10 @@
 				<page-three-tf :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
 					:isCanvas2d="isCanvas2d" />
 			</view>
+			<view v-else-if="currentTab == 'PAGE_THREE_YK'">
+				<page-three-yk :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
+					:isCanvas2d="isCanvas2d" />
+			</view>
 		</view>
 	</view>
 </template>
@@ -33,7 +37,7 @@
 	import Common from "../../static/js/common.js"
 	import PageThreeSm from "../../components/data-center/page-threeSm.vue"
 	import PageThreeTf from "../../components/data-center/page-threeTf.vue"
-	// import PageFour from "../../components/data-center/page-four.vue"
+	import PageThreeYk from "../../components/data-center/page-threeYk.vue"
 	import {DayScoreTotal} from '@/api/user'
 	import {
 		mapGetters
@@ -41,8 +45,8 @@
 	export default {
 		components: {
 			PageThreeSm,
-			PageThreeTf
-			// PageFour,
+			PageThreeTf,
+			PageThreeYk
 		},
 		computed: mapGetters(['isLogin']),
 		data() {
@@ -50,6 +54,7 @@
 				tabList: [
 						{text:"SM",value:"PAGE_THREE_SM"},
 						{text:"TF",value:"PAGE_THREE_TF"},
+						{text:"YK",value:"PAGE_THREE_YK"},
 					], //标签头
 				currentTab: 'PAGE_THREE_SM',
 				progress_bar_width: 16,

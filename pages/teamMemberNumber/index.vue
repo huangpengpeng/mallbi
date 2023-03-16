@@ -8,7 +8,7 @@
 			<view class="uni-tabs__nav-wrap">
 				<view class="uni-tabs__nav-scroll">
 					<scroll-view class="uni-tabs__nav" :scroll-x="true">
-						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 50%; text-align: center;"
+						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 33.3%; text-align: center;"
 							:class="{'is-active':currentTab===item.value}" class="uni-tabs__item">{{item.text}}</view>
 					</scroll-view>
 				</view>
@@ -25,6 +25,10 @@
 				<team-member-number-tf :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
 					:isCanvas2d="isCanvas2d" />
 			</view>
+			<view v-else-if="currentTab == 'TEAM-MEMBER-NUMBER-YK'">
+				<team-member-number-yk :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
+					:isCanvas2d="isCanvas2d" />
+			</view>
 		</view>
 	</view>
 </template>
@@ -33,6 +37,7 @@
 	import Common from "../../static/js/common.js"
 	import TeamMemberNumberSm from "../../components/data-center/team-member-numberSm.vue"
 	import TeamMemberNumberTf from "../../components/data-center/team-member-numberTf.vue"
+	import TeamMemberNumberYk from "../../components/data-center/team-member-numberYk.vue"
 	import {DayScoreTotal} from '@/api/user'
 	import {
 		mapGetters
@@ -40,7 +45,8 @@
 	export default {
 		components: {
 			TeamMemberNumberSm,
-			TeamMemberNumberTf
+			TeamMemberNumberTf,
+			TeamMemberNumberYk
 		},
 		computed: mapGetters(['isLogin']),
 		data() {
@@ -48,6 +54,7 @@
 				tabList: [
 						{text:"SM",value:"TEAM-MEMBER-NUMBER-SM"},
 						{text:"TF",value:"TEAM-MEMBER-NUMBER-TF"},
+						{text:"YK",value:"TEAM-MEMBER-NUMBER-YK"},
 					], //标签头
 				currentTab: 'TEAM-MEMBER-NUMBER-SM',
 				progress_bar_width: 16,

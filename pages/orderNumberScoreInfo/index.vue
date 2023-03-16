@@ -8,7 +8,7 @@
 			<view class="uni-tabs__nav-wrap">
 				<view class="uni-tabs__nav-scroll">
 					<scroll-view class="uni-tabs__nav" :scroll-x="true">
-						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 50%; text-align: center;"
+						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 33.3%; text-align: center;"
 							:class="{'is-active':currentTab===item.value}" class="uni-tabs__item">{{item.text}}</view>
 					</scroll-view>
 				</view>
@@ -25,6 +25,10 @@
 				<order-number-score-info-tf :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
 					:isCanvas2d="isCanvas2d" />
 			</view>
+			<view v-else-if="currentTab == 'ORDER-NUMBER-SCORE-INFO-YK'">
+				<order-number-score-info-yk :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
+					:isCanvas2d="isCanvas2d" />
+			</view>
 		</view>
 	</view>
 </template>
@@ -33,13 +37,15 @@
 	import Common from "../../static/js/common.js"
 	import OrderNumberScoreInfoSm from "../../components/data-center/order-number-score-infoSm.vue"
 	import OrderNumberScoreInfoTf from "../../components/data-center/order-number-score-infoTf.vue"
+	import OrderNumberScoreInfoYk from "../../components/data-center/order-number-score-infoYk.vue"
 	import {
 		mapGetters
 	} from 'vuex';
 	export default {
 		components: {
 			OrderNumberScoreInfoSm,
-			OrderNumberScoreInfoTf
+			OrderNumberScoreInfoTf,
+			OrderNumberScoreInfoYk 
 		},
 		computed: mapGetters(['isLogin']),
 		data() {
@@ -47,6 +53,7 @@
 				tabList: [
 						{text:"SM",value:"ORDER-NUMBER-SCORE-INFO-SM"},
 						{text:"TF",value:"ORDER-NUMBER-SCORE-INFO-TF"},
+						{text:"YK",value:"ORDER-NUMBER-SCORE-INFO-YK"},
 					], //标签头
 				currentTab: 'ORDER-NUMBER-SCORE-INFO-SM',
 				progress_bar_width: 16,
