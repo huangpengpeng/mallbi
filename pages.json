@@ -23,45 +23,7 @@
 					"scrollIndicator": false //禁用原生导航栏
 				}
 			}
-		},
-		{
-			"path": "pages/teamScoreInfo/index",
-			"style": {
-				"navigationBarTitleText": "团队每日积分明细",
-				"navigationStyle": "custom",
-				"navigationBarBackgroundColor": "#838383",
-				"navigationBarTextStyle": "white",
-				"app-plus": {
-					"scrollIndicator": false //禁用原生导航栏
-				}
-			}
-		},
-		{
-			"path": "pages/teamMemberNumber/index",
-			"style": {
-				"navigationBarTitleText": "团队每日新增创客数量",
-				"navigationStyle": "custom",
-				"navigationBarBackgroundColor": "#838383",
-				"navigationBarTextStyle": "white",
-				"app-plus": {
-					"scrollIndicator": false //禁用原生导航栏
-				}
-			}
-		},
-		
-		{
-			"path": "pages/orderNumberScoreInfo/index",
-			"style": {
-				"navigationBarTitleText": "日订单积分明细",
-				"navigationStyle": "custom",
-				"navigationBarBackgroundColor": "#838383",
-				"navigationBarTextStyle": "white",
-				"app-plus": {
-					"scrollIndicator": false //禁用原生导航栏
-				}
-			}	
 		}
-
 
 	],
 	"globalStyle": {

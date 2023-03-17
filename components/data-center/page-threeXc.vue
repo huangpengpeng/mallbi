@@ -2,14 +2,14 @@
 	<view class="content">
 		<scroll-view v-if="true" scroll-y class="data_body" :style="{height:scrollHeight}" @scroll="toScroll">
 
-
-		<!-- 微客群运营-->
+	
 			<view class="friend_operate">
-				<view class="title">daily increase</view>
+				<view class="title">商品预收款及发货汇总
+				</view>
 				<view class="pickerData">
-					<picker mode="date" :value="date" fields="month" @change="dateChange">
-						<view>{{date}}</view>
-					</picker>
+				<picker mode="date" :value="date" fields="month" @change="dateChange">
+									       <view>{{date}}</view>
+									  </picker>
 					<image src="/static/icon_select.png" class="icon_select"></image>
 				</view>
 				<senior-table v-if="!isPC" :headers="dataTable.headers" headerBgColor="#F78D58"
@@ -36,8 +36,8 @@
 	import Api from "../../static/api/mall/index.js"
 
 	import SeniorTable from "../data-table/senior-table.vue"
-
-	import {DayNumberTeam} from '@/api/user'
+	
+	import {DayScoreTotal} from '@/api/user'
 	var _self;
 	export default {
 		name: 'user-healthy',
@@ -63,9 +63,9 @@
 			SeniorTable
 		},
 		data() {
-			const currentDate = this.getDate({
-				format: 'yyyy-mm'
-			})
+			 const currentDate = this.getDate({
+						                format: 'yyyy-mm'
+						  })
 			return {
 				seniorHeightInPc: [150, , 150],
 				seniorFontSizeInPc: [30, 30],
@@ -75,7 +75,7 @@
 				animationData: {},
 				off: false, //判断是否开启动画
 				dataTable:{},
-					date: currentDate,
+				date: currentDate, 
 			}
 		},
 		mounted() {
@@ -86,31 +86,36 @@
 				timingFunction: 'ease',
 			})
 			this.animation = animation
-			this.DayNumberTeam("tf138940740527575", this.date);
+	console.log(111)
+	this.DayScoreTotal("wkp42271043176625",this.date);
+		},
+		onShow() {
+		
 		},
 	
+	
 		methods: {
-			dateChange(e) {
-				this.date = e.target.value.slice(0, 7);
-				this.DayNumberTeam("tf138940740527575", this.date);
-			},
-			// 获取年月日信息
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				if (type === 'start') {
-					year = year - 60;
-				} else if (type === 'end') {
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;
-				// day = day > 9 ? day : '0' + day;
-				return `${year}-${month}`;
-			},
-			
-		DayNumberTeam(platform, date){
-			DayNumberTeam({"platform":platform,"date": date}).then(res => {
+				 dateChange(e) {
+						       this.date = e.target.value.slice(0,7);
+							   this.DayScoreTotal("wkp42271043176625",this.date);
+						  },
+						// 获取年月日信息
+						            getDate(type) {
+						                const date = new Date();
+						                let year = date.getFullYear();
+						                let month = date.getMonth() + 1;
+						                if (type === 'start') {
+						                    year = year - 60;
+						                } else if (type === 'end') {
+						                    year = year + 2;
+						                }
+						                month = month > 9 ? month : '0' + month;
+						                // day = day > 9 ? day : '0' + day;
+						                return `${year}-${month}`;
+						            },
+		
+			DayScoreTotal(platform,date){
+				DayScoreTotal({"platform":platform,"date":date}).then(res => {
 					this.dataTable = res.data
 				});
 			},
@@ -152,14 +157,13 @@
 </script>
 
 <style scoped lang="less">
-	.icon_select {
+	.icon_select{
 		width: 25rpx;
 		height: 15rpx;
 		margin-top: 10rpx;
 		margin-left: 10rpx;
 	}
-	
-	.pickerData {
+	.pickerData{
 		float: right;
 		margin-right: 40rpx;
 		margin-top: -55rpx;

@@ -8,7 +8,7 @@
 			<view class="uni-tabs__nav-wrap">
 				<view class="uni-tabs__nav-scroll">
 					<scroll-view class="uni-tabs__nav" :scroll-x="true">
-						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 33.3%; text-align: center;"
+						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 100%; text-align: center;"
 							:class="{'is-active':currentTab===item.value}" class="uni-tabs__item">{{item.text}}</view>
 					</scroll-view>
 				</view>
@@ -16,47 +16,31 @@
 		</view>
 		<!--主体内容-->
 		<view class="data_body" :style="{height: scrollHeight}">
+			<page-three-sm :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC" :isCanvas2d="isCanvas2d" />
 		
-			<view v-if="currentTab == 'PAGE_THREE_SM'">
-				<page-three-sm :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
-					:isCanvas2d="isCanvas2d" />
-			</view>
-			<view v-else-if="currentTab == 'PAGE_THREE_TF'">
-				<page-three-tf :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
-					:isCanvas2d="isCanvas2d" />
-			</view>
-			<view v-else-if="currentTab == 'PAGE_THREE_YK'">
-				<page-three-yk :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC"
-					:isCanvas2d="isCanvas2d" />
-			</view>
 		</view>
 	</view>
 </template>
 <script>
 	import Config from "../../static/js/config.js"
 	import Common from "../../static/js/common.js"
-	import PageThreeSm from "../../components/data-center/page-threeSm.vue"
-	import PageThreeTf from "../../components/data-center/page-threeTf.vue"
-	import PageThreeYk from "../../components/data-center/page-threeYk.vue"
+
 	import {DayScoreTotal} from '@/api/user'
 	import {
 		mapGetters
 	} from 'vuex';
 	export default {
 		components: {
-			PageThreeSm,
-			PageThreeTf,
-			PageThreeYk
+			page-three-sm
 		},
 		computed: mapGetters(['isLogin']),
 		data() {
 			return {
 				tabList: [
-						{text:"SM",value:"PAGE_THREE_SM"},
-						{text:"TF",value:"PAGE_THREE_TF"},
-						{text:"YK",value:"PAGE_THREE_YK"},
+						{text:"商品预收款及发货汇总",value:"PAGE_THREE_XC"},
+			
 					], //标签头
-				currentTab: 'PAGE_THREE_SM',
+				currentTab: 'PAGE_THREE_XC',
 				progress_bar_width: 16,
 				progress_text_top: 0,
 				isPC: false,
