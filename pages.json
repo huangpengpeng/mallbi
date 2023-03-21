@@ -23,6 +23,30 @@
 					"scrollIndicator": false //禁用原生导航栏
 				}
 			}
+		},
+		{
+			"path": "pages/userOrder/index",
+			"style": {
+				"navigationBarTitleText": "经销商订货汇总",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}
+		},
+		{
+			"path": "pages/userOrderGoods/index",
+			"style": {
+				"navigationBarTitleText": "经销商预收款商品汇总",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}
 		}
 
 	],

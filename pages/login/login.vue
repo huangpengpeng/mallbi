@@ -102,7 +102,7 @@
 					
 				setTimeout(() => {
 					uni.navigateTo({
-						url:"/pages/index/index?currentTab=PAGE_THREE_SM"
+						url:"/pages/index/index?currentTab=PAGE_THREE_XC"
 					})
 				}, 3000)
 					

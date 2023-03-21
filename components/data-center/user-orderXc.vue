@@ -4,7 +4,7 @@
 
 	
 			<view class="friend_operate">
-				<view class="title">商品预收款及发货汇总
+				<view class="title">经销商预收款汇总
 				</view>
 				<view class="pickerData">
 				<picker mode="date" :value="date" fields="month" @change="dateChange">
@@ -37,7 +37,7 @@
 
 	import SeniorTable from "../data-table/senior-table.vue"
 	
-	import {GoodsPayPrice} from '@/api/user'
+	import {UserPayPrice} from '@/api/user'
 	var _self;
 	export default {
 		name: 'user-healthy',
@@ -85,7 +85,7 @@
 			})
 			this.animation = animation
 	console.log(111)
-	this.GoodsPayPrice(this.date);
+	this.UserPayPrice(this.date);
 		},
 		onShow() {
 		
@@ -95,7 +95,7 @@
 		methods: {
 				 dateChange(e) {
 						       this.date = e.target.value.slice(0,7);
-							   this.GoodsPayPrice(this.date);
+							   this.UserPayPrice(this.date);
 						  },
 						// 获取年月日信息
 						            getDate(type) {
@@ -112,8 +112,8 @@
 						                return `${year}-${month}`;
 						            },
 		
-			GoodsPayPrice(date){
-				GoodsPayPrice({"date":date}).then(res => {
+			UserPayPrice(date){
+				UserPayPrice({"date":date}).then(res => {
 					console.log( res.data)
 					this.dataTable = res.data
 				});

@@ -27,61 +27,26 @@ export function loginMobileCode(data) {
 }
 
 
-/**
- * 日维度积分汇总
- * @param data 
- */
-export function DayScoreTotal(data) {
-	return requestDef.get("bi/dayScoreTotal", data,{
+
+export function GoodsPayPrice(data) {
+	return requestDef.get("bi/goodsPayPrice", data,{
 	
 	});
 }
 
 
 
-/**
- * 各团队每日积分明细
- * @param data 
- */
-export function DayScoreTeamTotal(data) {
-	return requestDef.get("bi/dayScoreTeamTotal", data,{
-	
-	});
-}
-
-/**
- * 各团队每日新增创客数量
- * @param data 
- */
-export function DayNumberTeam(data) {
-	return requestDef.get("bi/dayNumberTeam", data,{
-	
+export function UserPayPrice(data) {
+	return requestDef.get("bi/UserPayPrice", data,{
 	});
 }
 
 
-/**
- * 每日订单积分明细
- * @param data 
- */
-export function DayOrderNumberScoreInfo(data) {
-	return requestDef.get("bi/dayOrderNumberScoreInfo", data,{
-	
+
+export function UserGoodsPayPrice(data) {
+	return requestDef.get("bi/UserGoodsPayPrice", data,{
 	});
 }
-
-
-/**
- * 每日订单积分占比
- * @param data 
- */
-export function DayOrderNumberScoreAccount(data) {
-	return requestDef.get("bi/dayOrderNumberScoreAccount", data,{
-	
-	});
-}
-
-
 
 
 
