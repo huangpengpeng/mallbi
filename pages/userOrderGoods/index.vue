@@ -7,16 +7,16 @@
 		<view id="tabBar" class="uni-tabs__header">
 			<view class="uni-tabs__nav-wrap">
 				<view class="uni-tabs__nav-scroll">
-					<scroll-view class="uni-tabs__nav" :scroll-x="true">
+					<!-- <scroll-view class="uni-tabs__nav" :scroll-x="true">
 						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 100%; text-align: center;"
 							:class="{'is-active':'USER_ORDER_XC'===item.value}" class="uni-tabs__item">{{item.text}}</view>
-					</scroll-view>
+					</scroll-view> -->
 				</view>
 			</view>
 		</view>
 		<!--主体内容-->
 		<view class="data_body" :style="{height: scrollHeight}">
-			<user-order-xc :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC" :isCanvas2d="isCanvas2d" />
+			<user-order-goods-xc :scrollHeight="scrollHeight" :currentTab="currentTab" :isPC="isPC" :isCanvas2d="isCanvas2d" />
 		
 		</view>
 	</view>
@@ -24,20 +24,20 @@
 <script>
 	import Config from "../../static/js/config.js"
 	import Common from "../../static/js/common.js"
-	import UserOrderXc from "../../components/data-center/user-orderXc.vue"
+	import UserOrderGoodsXc from "../../components/data-center/user-orderGoodsXc.vue"
 	import {DayScoreTotal} from '@/api/user'
 	import {
 		mapGetters
 	} from 'vuex';
 	export default {
 		components: {
-			UserOrderXc
+			UserOrderGoodsXc
 		},
 		computed: mapGetters(['isLogin']),
 		data() {
 			return {
 				tabList: [
-						{text:"经销商预收款汇总",value:"USER_ORDER_XC"},
+						{text:"经销商预收款商品汇总",value:"USER_ORDER_XC"},
 			
 					], //标签头
 				progress_bar_width: 16,

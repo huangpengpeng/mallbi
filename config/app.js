@@ -63,8 +63,8 @@ module.exports = {
 		// #ifdef MP
 		  appId=uni.getAccountInfoSync().miniProgram.appId;
 		// #endif
-		// url='https://bb.51wk.cc/';
-		url='http://127.0.0.1:860/';
+		  url='https://6mnyd8.sunnychum.cn';
+		//url='http://127.0.0.1:860';
 		return url;
 	}
 }

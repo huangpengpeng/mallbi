@@ -7,10 +7,10 @@
 		<view id="tabBar" class="uni-tabs__header">
 			<view class="uni-tabs__nav-wrap">
 				<view class="uni-tabs__nav-scroll">
-					<scroll-view class="uni-tabs__nav" :scroll-x="true">
+				<!-- 	<scroll-view class="uni-tabs__nav" :scroll-x="true">
 						<view v-for="(item, index) in tabList" :key="index" @click="switchTab(item.value)" style="width: 100%; text-align: center;"
 							:class="{'is-active':'USER_ORDER_XC'===item.value}" class="uni-tabs__item">{{item.text}}</view>
-					</scroll-view>
+					</scroll-view> -->
 				</view>
 			</view>
 		</view>

@@ -29,7 +29,7 @@ export function loginMobileCode(data) {
 
 
 export function GoodsPayPrice(data) {
-	return requestDef.get("bi/goodsPayPrice", data,{
+	return requestDef.post("bi/goodsPayPrice", data,{
 	
 	});
 }
@@ -37,14 +37,14 @@ export function GoodsPayPrice(data) {
 
 
 export function UserPayPrice(data) {
-	return requestDef.get("bi/UserPayPrice", data,{
+	return requestDef.post("bi/UserPayPrice", data,{
 	});
 }
 
 
 
 export function UserGoodsPayPrice(data) {
-	return requestDef.get("bi/UserGoodsPayPrice", data,{
+	return requestDef.post("bi/UserGoodsPayPrice", data,{
 	});
 }
 
