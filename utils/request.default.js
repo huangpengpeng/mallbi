@@ -89,7 +89,7 @@ function baseRequest(url, method, data, {noAuth = false, noVerify = false})
 
   return new Promise((reslove, reject) => {
     uni.request({
-      url: Url + '/JwebmallBi' + url,
+      url: Url + '/JwebmallBi/' + url,
       method: 'POST',
       header: header,
       data: data || {},
