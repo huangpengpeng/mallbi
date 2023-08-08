@@ -83,5 +83,23 @@ export function DayOrderNumberScoreAccount(data) {
 
 
 
+/**
+ * 业绩报表
+ * @param data 
+ */
+export function AmountReport(data) {
+	return requestDef.get("bi/amountReport", data,{
+	
+	});
+}
+/**
+ * 星级报表
+ * @param data 
+ */
+export function CapaReport(data) {
+	return requestDef.get("bi/capaReport", data,{
+	
+	});
+}
 
 

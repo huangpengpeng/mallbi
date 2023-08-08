@@ -60,8 +60,86 @@
 					"scrollIndicator": false //禁用原生导航栏
 				}
 			}	
+		},
+		
+		{
+			"path": "pages/performance/index",
+			"style": {
+				"navigationBarTitleText": "业绩报表",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}	
 		}
-
+,
+		
+		{
+			"path": "pages/performancePoint/index",
+			"style": {
+				"navigationBarTitleText": "分公司业绩报表",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}	
+		},
+		
+		{
+			"path": "pages/performancePres/index",
+			"style": {
+				"navigationBarTitleText": "总裁业绩报表",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}	
+		},
+		
+		{
+			"path": "pages/corpLevel/index",
+			"style": {
+				"navigationBarTitleText": "公司星级报表",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}	
+		},
+		
+		{
+			"path": "pages/pointLevel/index",
+			"style": {
+				"navigationBarTitleText": "分公司星级报表",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}	
+		},
+		
+		{
+			"path": "pages/presLevel/index",
+			"style": {
+				"navigationBarTitleText": "总裁星级报表",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#838383",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"scrollIndicator": false //禁用原生导航栏
+				}
+			}	
+		}
 
 	],
 	"globalStyle": {

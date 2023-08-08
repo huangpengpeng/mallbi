@@ -2,16 +2,14 @@
 	<view class="content">
 		<scroll-view v-if="true" scroll-y class="data_body" :style="{height:scrollHeight}" @scroll="toScroll">
 
-	
+
 			<view class="friend_operate">
-				<view class="title">total score-M
-					<!-- <text class="font-middle">(最近活跃时间)</text> -->
-					
+				<view class="title">公司业绩报表
 				</view>
 				<view class="pickerData">
-				<picker mode="date" :value="date" fields="month" @change="dateChange">
-									       <view>{{date}}</view>
-									  </picker>
+					<picker mode="date" :value="date" fields="month" @change="dateChange">
+						<view>{{date}}</view>
+					</picker>
 					<image src="/static/icon_select.png" class="icon_select"></image>
 				</view>
 				<senior-table v-if="!isPC" :headers="dataTable.headers" headerBgColor="#F78D58"
@@ -26,7 +24,7 @@
 			<view class="split_line"></view>
 
 
-	
+
 		</scroll-view>
 		<view v-else class="container padding_stand-big normal_color">
 			<li class="iconfont icon-cry cry"></li>暂无数据
@@ -36,10 +34,11 @@
 
 <script>
 	import Api from "../../static/api/mall/index.js"
-
 	import SeniorTable from "../data-table/senior-table.vue"
-	
-	import {DayScoreTotal} from '@/api/user'
+
+	import {
+		AmountReport
+	} from '@/api/user'
 	var _self;
 	export default {
 		name: 'user-healthy',
@@ -65,19 +64,19 @@
 			SeniorTable
 		},
 		data() {
-			 const currentDate = this.getDate({
-						                format: 'yyyy-mm'
-						  })
+			const currentDate = this.getDate({
+				format: 'yyyy-mm'
+			})
 			return {
 				seniorHeightInPc: [150, , 150],
 				seniorFontSizeInPc: [30, 30],
-				
+
 				delayload: false, //延时加载图表，否则会出现图表加载完后定位错乱
-				pageScrollTop:0,
+				pageScrollTop: 0,
 				animationData: {},
 				off: false, //判断是否开启动画
-				dataTable:{},
-				date: currentDate, 
+				dataTable: {},
+				date: currentDate,
 			}
 		},
 		mounted() {
@@ -88,37 +87,35 @@
 				timingFunction: 'ease',
 			})
 			this.animation = animation
-	console.log(111)
-	this.DayScoreTotal("wkp42271043176625",this.date);
+			this.AmountReport("jymall", this.date);
 		},
-		onShow() {
-		
-		},
-	
-	
+
 		methods: {
-				 dateChange(e) {
-						       this.date = e.target.value.slice(0,7);
-							   this.DayScoreTotal("wkp42271043176625",this.date);
-						  },
-						// 获取年月日信息
-						            getDate(type) {
-						                const date = new Date();
-						                let year = date.getFullYear();
-						                let month = date.getMonth() + 1;
-						                if (type === 'start') {
-						                    year = year - 60;
-						                } else if (type === 'end') {
-						                    year = year + 2;
-						                }
-						                month = month > 9 ? month : '0' + month;
-						                // day = day > 9 ? day : '0' + day;
-						                return `${year}-${month}`;
-						            },
-		
-			DayScoreTotal(platform,date){
-				DayScoreTotal({"platform":platform,"date":date}).then(res => {
-					console.log(res.data)
+			dateChange(e) {
+				this.date = e.target.value.slice(0, 7);
+				this.AmountReport("jymall", this.date);
+			},
+			// 获取年月日信息
+			getDate(type) {
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;
+				// day = day > 9 ? day : '0' + day;
+				return `${year}-${month}`;
+			},
+
+			AmountReport(platform, date) {
+				AmountReport({
+					"type": 0,
+					"platform": platform,
+					"time": date
+				}).then(res => {
 					this.dataTable = res.data
 				});
 			},
@@ -145,10 +142,10 @@
 				this.animationData = this.animation.export()
 			},
 			toScroll(e) {
-			  this.pageScrollTop = e.detail.scrollTop
+				this.pageScrollTop = e.detail.scrollTop
 				this.declick();
 			},
-			async getData(){
+			async getData() {
 				uni.showLoading();
 				await setTimeout(() => {
 					this.delayload = true;
@@ -160,18 +157,20 @@
 </script>
 
 <style scoped lang="less">
-	.icon_select{
+	.icon_select {
 		width: 25rpx;
 		height: 15rpx;
 		margin-top: 10rpx;
 		margin-left: 10rpx;
 	}
-	.pickerData{
+
+	.pickerData {
 		float: right;
 		margin-right: 40rpx;
 		margin-top: -55rpx;
 		display: flex;
 	}
+
 	.content {
 		padding-top: 10rpx;
 
